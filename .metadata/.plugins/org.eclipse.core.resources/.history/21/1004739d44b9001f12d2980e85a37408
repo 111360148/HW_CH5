@@ -1,0 +1,13 @@
+package hw_ch5;
+
+class p32 {
+	public static void main(String[]args)throws CarExceptionP32 {
+		CarP32 car1;
+		car1 =new CarP32();
+		car1.setCar(1234,-10.0);
+		car1.show();
+	}
+}
+class CarExceptionP32 extends Exception{
+	
+}

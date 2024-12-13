@@ -1,0 +1,30 @@
+package hw_ch5;
+
+import java.io.*;
+import java.net.*;
+
+public class chatgpt_2 {
+    public static void main(String[] args) {
+        String urlString = "https://www.example.com";
+
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 200) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+                reader.close();
+            } else {
+                System.out.println("HTTP Error: " + responseCode);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
